@@ -309,6 +309,11 @@ const ICONS={"energy_00.png": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQA
 // Shared quiet mix. Web Audio gain also controls music volume on mobile Safari.
 const music=document.querySelector('#backgroundMusic'),soundButton=document.querySelector('#soundToggle');
 const victorySound=document.querySelector('#victorySound');
+// Keep the mobile fixed control outside the stage's CSS containment.
+const soundHome=soundButton.parentElement;
+const mobileSoundLayout=matchMedia('(max-width:1024px) and (pointer:coarse), (max-width:600px)');
+function placeSoundControl(){(mobileSoundLayout.matches?document.body:soundHome).append(soundButton)}
+placeSoundControl();mobileSoundLayout.addEventListener('change',placeSoundControl);
 let victoryGain,victoryBuffer,victoryLoading,victorySource,victoryRequest=0;
 let audioContext,musicGain,effectsGain,audioStarted=false,audioMuted=false,lastTick=0;
 // Start each visit with sound enabled.
