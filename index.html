@@ -419,7 +419,7 @@ spin.onclick=()=>{if(busy)return;const previous=saved();if(previous){reveal(prev
 }
 animation.finished.then(()=>{clearInterval(timer);document.querySelector(".wheel").classList.remove("is-spinning");document.querySelector('#hint').textContent='Your Black Friday reward!';setTimeout(()=>reveal(record,true),500)})};
 function updateClaimState(r){const claimed=!!r.previewClaimed;document.querySelector('#winTitle').textContent=claimed?'Reward Claimed':'YOU WON!';document.querySelector('#claim').hidden=claimed;document.querySelector('#claimNote').textContent='';}
-document.querySelector('#claim').onclick=()=>{const r=saved();if(!r)return;r.previewClaimed=true;visitReward=r;updateClaimState(r);document.querySelector('#closeReward').focus()};
+document.querySelector('#claim').onclick=()=>{if(!saved())return;window.location.assign('https://travel-town-app.com/Vajd4kpe')};
 
 document.querySelector('#closeReward').onclick=()=>{overlay.hidden=true;document.querySelector('.stage').classList.remove('spin-started');startIdleLights();document.querySelector('#usedMessage').hidden=false;document.querySelector('#hint').hidden=true;document.querySelector('#usedMessage').setAttribute('tabindex','-1');document.querySelector('#usedMessage').focus()};document.addEventListener('keydown',e=>{if(!overlay.hidden&&e.key==='Escape')document.querySelector('#closeReward').click();if(!overlay.hidden&&e.key==='Tab'){const first=document.querySelector('#closeReward'),last=document.querySelector('#claim').hidden?first:document.querySelector('#claim');if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});
 
